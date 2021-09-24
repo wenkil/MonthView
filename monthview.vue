@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app-container">
     <el-row>
       <el-col :span="7" style="position: absolute;left: 35%;">
         <el-card style="width: 375px">
@@ -22,7 +22,7 @@
                      class="day_dot"></i>
                   {{ v.num }}
                 </a>
-                <a class="day__text" v-else v-html="v.num" style="color:#B3B0B0">
+                <a class="day__text" v-else style="color:#B3B0B0">
                   {{ v.num }}
                 </a>
               </div>
@@ -114,7 +114,7 @@ export default {
         }
         else {
           this.monthList[i].child[0]["monthType"] = 2;
-          this.monthList[i].child[0]["num"] = "&nbsp";
+          this.monthList[i].child[0]["num"] = " ";
         }
       }
       for (let i = today_weekNum - 1; i < 7; i++) {
@@ -140,8 +140,8 @@ export default {
             }
           }
           else {
-            this.monthList[i].child[j]["monthType"] = 1;
-            this.monthList[i].child[j]["num"] = this.indexDay <= allDay ? this.indexDay : "";
+            this.monthList[i].child[j]["monthType"] = this.indexDay <= allDay ? 1 : 2;
+            this.monthList[i].child[j]["num"] = this.indexDay <= allDay ? this.indexDay : " ";
             this.indexDay += 1;
           }
         }
